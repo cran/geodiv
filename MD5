@@ -1,6 +1,7 @@
-0a40ee4b23a4401679f20af8c074fbc9 *DESCRIPTION
+2ca23b268a7a58fa386dde768fb079e9 *DESCRIPTION
 76cfb2c770d056b87bd66d474124acb3 *LICENSE
 84865c529c565a6fc4e4e1b3177cc6cf *NAMESPACE
+77664121295ff62d6613c4dc6c50e93e *NEWS.md
 0fc817f483773bd02f44f777998120ae *R/RcppExports.R
 ca72e460583c9da518112fe1610fedc2 *R/aacf.R
 c77a00399112a3cffb2f165412f70bdd *R/basics.R
@@ -11,7 +12,7 @@ c561992434e428b7b1ad483dfb3ee92d *R/fftshift.R
 b326e6eb8d3ff78dbb1ed48e88917a04 *R/fourier.R
 2fdb27e101681abdd5a5f3ef03f4eb62 *R/geodiv-package.R
 80cc3435796392c3ad413c626dd59b80 *R/localsurface.R
-b1be44d2349b788e918d531de9a4ddbf *R/movingwindow.R
+378b843423658233064be3b780d39ddd *R/movingwindow.R
 cf69120aa9ef007ee5568cb819b24390 *R/sdq.R
 e10ca0a92ecd626e2a81df472300e8cc *R/sfd.R
 589c73f1eae22479f2d785278996b74e *R/simpsons.R
@@ -80,6 +81,6 @@ c8d42806c2d6d8abc40635821ebcc070 *man/svi.Rd
 932d9c1eedd4f4b0e54aea23acf798c7 *src/Makevars
 932d9c1eedd4f4b0e54aea23acf798c7 *src/Makevars.win
 c56e6d71f2bde124e23b9c6a04c7a077 *src/RcppExports.cpp
-e064300640b4dca00783e31c385cb26b *src/sfd.cpp
+dac6afc5ffab4bce50a3cfb8b846c37c *src/sfd.cpp
 ded58841f3ad283947713e6b80ce5d23 *tests/testthat.R
 a761bcf45be468f72fdb191a8184495e *tests/testthat/test_inputs.R
