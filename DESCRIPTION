@@ -1,7 +1,7 @@
 Package: geodiv
 Type: Package
 Title: Methods for Calculating Gradient Surface Metrics
-Version: 0.1.1
+Version: 0.2.0
 Author: Annie C. Smith, Phoebe Zarnetske, Kyla Dahlin, Adam Wilson, Andrew Latimer
 Maintainer: Annie C. Smith <annie.smith@dnr.wa.gov>
 Description: Methods for calculating gradient surface metrics for
@@ -15,10 +15,12 @@ Imports: dplyr (>= 0.7.8), phonTools (>= 0.2-2.1), pracma (>= 2.2.2),
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.0.2
-Suggests: testthat, knitr, ggplot2
+RoxygenNote: 7.1.1
+Suggests: testthat, ggplot2, rmarkdown, rasterVis, mapdata, maptools,
+        maps, tidyverse, tidyr, ggmap, corrplot, cowplot, gridExtra,
+        factoextra, cluster
 LinkingTo: Rcpp, RcppArmadillo
 NeedsCompilation: yes
-Packaged: 2020-02-13 14:20:47 UTC; annie
+Packaged: 2020-09-09 19:37:57 UTC; lsth490
 Repository: CRAN
-Date/Publication: 2020-02-13 14:40:08 UTC
+Date/Publication: 2020-09-09 20:00:02 UTC
