@@ -9,7 +9,6 @@ texture_image(
   window_type = "square",
   size = 5,
   in_meters = FALSE,
-  epsg_proj = 5070,
   metric,
   args = NULL,
   parallel = TRUE,
@@ -23,13 +22,9 @@ an equal area projection (given by \code{epsg_proj} argument).}
 
 \item{window_type}{Character. Type of window, either circular or square.}
 
-\item{size}{Numeric. Size of window, in number of pixels extra on each side,
-or radius (in meters).}
+\item{size}{Numeric. Size of window (edge length) or diameter (in meters).}
 
 \item{in_meters}{Logical. Is the size given in meters?}
-
-\item{epsg_proj}{Numeric. Appropriate equal area EPSG code used to
-crop raster to each circular window.}
 
 \item{metric}{Character. Metric to calculate for each window. Metrics
 from the geodiv package are listed below.}
@@ -58,6 +53,9 @@ on individual pixels. This creates a continuous surface of the
 texture metric.
 }
 \details{
+Note that this function is meant to work on rasters with an equal area
+projection.
+
 Metrics available from geodiv package:
 \enumerate{
    \item{\code{'sa'}: average surface roughness}
@@ -68,17 +66,12 @@ Metrics available from geodiv package:
    \item{\code{'sdr'}: surface area ratio}
    \item{\code{'sbi'}: surface bearing index}
    \item{\code{'sci'}: core fluid retention index}
-   \item{\code{'ssk_adj'}: adjusted skewness}
    \item{\code{'ssk'}: skewness}
-   \item{\code{'sku_exc'}: excess kurtosis}
    \item{\code{'sku'}: kurtosis}
    \item{\code{'sds'}: summit density}
    \item{\code{'sfd'}: 3d fractal dimension}
-   \item{\code{'srw'}: dominant radial wavelength}
-   \item{\code{'srwi'}: radial wavelength index}
-   \item{\code{'shw'}: mean half wavelength}
-   \item{\code{'std'}: angle of dominating texture}
-   \item{\code{'stdi'}: texture direction index}
+   \item{\code{'srw'}: dominant radial wavelength, radial wavelength index, mean half wavelength}
+   \item{\code{'std'}: angle of dominating texture, texture direction index}
    \item{\code{'svi'}: valley fluid retention index}
    \item{\code{'stxr'}: texture aspect ratio}
    \item{\code{'ssc'}: mean summit curvature}
@@ -101,13 +94,13 @@ library(raster)
 # import raster image
 data(normforest)
 
-# crop raster to much smaller area
-x <- crop(normforest, extent(-123, -122.99, 43, 43.01))
+# crop raster to smaller area
+x <- crop(normforest, extent(normforest, 1, 100, 1, 100))
 
 # get a surface of root mean square roughness
 sa_img <- texture_image(x = x, window = 'square',
-size = 11, metric = 'sa',
-parallel = FALSE)
+size = 5, metric = 'sa',
+parallel = TRUE, ncores = 2, nclumps = 20)
 
 # plot the result
 plot(sa_img)

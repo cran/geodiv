@@ -21,16 +21,16 @@
 #' plot(aacf_out)
 #' @export
 aacf <- function(x) {
-  if(class(x) != 'RasterLayer' & class(x) != 'matrix') {stop('x must be a raster or matrix.')}
+  if(class(x)[1] != 'RasterLayer' & class(x)[1] != 'matrix') {stop('x must be a raster or matrix.')}
 
   # get raster dimensions
   M <- ncol(x)
   N <- nrow(x)
 
-  data_type <- if(class(x) == 'matrix') {'matrix'} else {'RasterLayer'}
+  data_type <- if(class(x)[1] == 'matrix') {'matrix'} else {'RasterLayer'}
 
   # convert matrix to raster if necessary (equal area)
-  if (class(x) == 'matrix') {
+  if (class(x)[1] == 'matrix') {
     x <- raster(x)
     extent(x) <- c(0, ncol(x), 0, nrow(x))
     crs(x) <- "+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=23 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
@@ -120,7 +120,7 @@ aacf <- function(x) {
 #' @param x A raster or matrix.
 #' @param threshold A numeric vector containing values between 0 and 1. Indicates
 #'   the autocorrelation values to which the rates of decline are measured.
-#' @param plot Logical. Defaults to \code{FALSE}. If \code{TRUE}, the AACF and
+#' @param create_plot Logical. Defaults to \code{FALSE}. If \code{TRUE}, the AACF and
 #'   lines showing the considered directions of autocorrelation from the origin
 #'   will be plotted.
 #' @return A list containing the minimum and maximum distances from an
@@ -146,22 +146,22 @@ aacf <- function(x) {
 #' # calculate Scl20, the minimum distance to an autocorrelation value of 0.2 in the AACF
 #' Scl20 <- sclvals[1]
 #' @export
-scl <- function(x, threshold = c(0.20, 1 / exp(1)), plot = FALSE) {
-  if(class(x) != 'RasterLayer' & class(x) != 'matrix') {stop('x must be a raster or matrix.')}
-  if(class(plot) != 'logical') {stop('plot argument must be TRUE/FALSE.')}
+scl <- function(x, threshold = c(0.20, 1 / exp(1)), create_plot = FALSE) {
+  if(class(x)[1] != 'RasterLayer' & class(x)[1] != 'matrix') {stop('x must be a raster or matrix.')}
+  if(class(create_plot) != 'logical') {stop('create_plot argument must be TRUE/FALSE.')}
   if(class(threshold) != 'numeric') {stop('threshold must be numeric.')}
   if(sum(threshold < 0) >= 1) {stop('threshold values cannot be less than 0.')}
 
   # get aacf img
   aacfimg <- aacf(x)
 
-  if (!(class(aacfimg) %in% c('matrix', 'RasterLayer'))) {
+  if (!(class(aacfimg)[1] %in% c('matrix', 'RasterLayer'))) {
     return(c(NA, NA, NA, NA))
-  } else if (class(aacfimg) %in% c('matrix', 'RasterLayer')) {
+  } else if (class(aacfimg)[1] %in% c('matrix', 'RasterLayer')) {
 
-    data_type <- if(class(x) == 'matrix') {'matrix'} else {'RasterLayer'}
+    data_type <- if(class(x)[1] == 'matrix') {'matrix'} else {'RasterLayer'}
 
-    if (class(aacfimg) == 'RasterLayer') {
+    if (class(aacfimg)[1] == 'RasterLayer') {
       # take amplitude image, cut in half (y direction)
       half_dist <- (ymax(aacfimg) - ymin(aacfimg)) / 2
       ymin <- ymax(aacfimg) - half_dist
@@ -182,7 +182,7 @@ scl <- function(x, threshold = c(0.20, 1 / exp(1)), plot = FALSE) {
 
     ### line calculations are taken from the plotrix function draw.radial.line
     # calculate rays extending from origin
-    if (plot == TRUE) {
+    if (create_plot == TRUE) {
       if (data_type == 'matrix') {
         print("cannot draw lines for object of class 'matrix.'")
       }
@@ -331,11 +331,11 @@ scl <- function(x, threshold = c(0.20, 1 / exp(1)), plot = FALSE) {
 #' Str20 <- strvals[1]
 #' @export
 stxr <- function(x, threshold = c(0.20, 1 / exp(1))) {
-  if(class(x) != 'RasterLayer' & class(x) != 'matrix') {stop('x must be a raster or matrix.')}
+  if(class(x)[1] != 'RasterLayer' & class(x)[1] != 'matrix') {stop('x must be a raster or matrix.')}
   if(class(threshold) != 'numeric') {stop('threshold must be numeric.')}
   if(sum(threshold < 0) >= 1) {stop('threshold values cannot be less than 0.')}
 
-  sclvals <- scl(x, threshold = threshold, plot = FALSE)
+  sclvals <- scl(x, threshold = threshold, create_plot = FALSE)
 
   vals <- list()
   # because the list contains both min/max vals, need double the length

@@ -7,9 +7,9 @@ test_that("incorrect inputs return errors in aacf", {
   expect_error(aacf('a'), 'x must be a raster or matrix.')
   expect_error(scl('a'), 'x must be a raster or matrix.')
   expect_error(stxr('a'), 'x must be a raster or matrix.')
-  expect_error(scl(normforest, threshold = -0.1, plot = FALSE), 'threshold values cannot be less than 0.')
-  expect_error(scl(normforest, threshold = 'a', plot = FALSE), 'threshold must be numeric.')
-  expect_error(scl(normforest, plot = 'a'), 'plot argument must be TRUE/FALSE.')
+  expect_error(scl(normforest, threshold = -0.1, create_plot = FALSE), 'threshold values cannot be less than 0.')
+  expect_error(scl(normforest, threshold = 'a', create_plot = FALSE), 'threshold must be numeric.')
+  expect_error(scl(normforest, create_plot = 'a'), 'create_plot argument must be TRUE/FALSE.')
   expect_error(stxr(normforest, threshold = -0.1), 'threshold values cannot be less than 0.')
   expect_error(stxr(normforest, threshold = 'a'), 'threshold must be numeric.')
 })
@@ -79,10 +79,10 @@ test_that("incorrect inputs return errors in fftshift", {
 })
 
 test_that("incorrect inputs return errors in fourier", {
-  expect_error(std('a', plot = FALSE), 'x must be a raster or matrix.')
-  expect_error(std(normforest, plot = 'a'), 'plot must be logical.')
-  expect_error(srw('a', plot = FALSE), 'x must be a raster or matrix.')
-  expect_error(srw(normforest, plot = 'a'), 'plot must be logical.')
+  expect_error(std('a', create_plot = FALSE), 'x must be a raster or matrix.')
+  expect_error(std(normforest, create_plot = 'a'), 'create_plot must be logical.')
+  expect_error(srw('a', create_plot = FALSE), 'x must be a raster or matrix.')
+  expect_error(srw(normforest, create_plot = 'a'), 'create_plot must be logical.')
 })
 
 test_that("incorrect inputs return errors in localsurface", {
