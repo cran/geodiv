@@ -1,7 +1,7 @@
 ---
 title: "NEWS.md"
 author: "Annie C. Smith"
-date: "April 1, 2021"
+date: "June 3, 2021"
 output: html_document
 ---
 
@@ -31,3 +31,7 @@ Additionally, the 'texture_image' function no longer requires a projection as in
 ## geodiv 1.0.1
 
 Fixed a minor bug in the 'texture_image' and 'pad_edges' functions. Added text to clarify the vignette objectives. Fixed a small error in the DESCRIPTION.
+
+## geodiv 1.0.2
+
+Fixed errors in function descriptions and examples. Simplified the vignette.
