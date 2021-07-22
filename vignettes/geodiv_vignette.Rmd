@@ -183,13 +183,16 @@ rasterVis::levelplot(output_raster2, margin = F, par.settings = eviTheme,
 ## Motivation
 By assessing heterogeneity using a variety of metrics, researchers can gain a more complete picture of heterogeneity than they would with a single metric (Dahlin, 2016). However, many metrics are related and not all are informative for every situation. To demonstrate the utility of *geodiv* for producing and evaluating the utility of multiple metrics, in Example 2 we apply all surface metric functions to satellite imagery across Oregon, USA and examine the patterns of, and relationships among, metrics. We calculate metrics for a commonly-used measure of canopy greenness, Enhanced Vegetation Index (EVI), from NASA's Moderate Resolution Imaging Spectroradiometer (MODIS). We then examine the correlations among metrics along a transect crossing the state, and determine how the metrics cluster using two methods, hierarchical clustering and Principal Components Analysis (PCA). This analysis demonstrates the relationships among metrics, with potential for determining how metrics group and behave with various input data. Note that as with any analysis, researchers will want to use the most appropriate data source and resolution for their own study. The example shown here is only meant as an example to demonstrate the metrics themselves, not to provide data for any subsequent analyses.
 
-## Elevation and EVI Data
+## EVI Data
 EVI data that are available to use along with this vignette were prepared in Google Earth Engine (Gorelick et al., 2017) and analyzed in R. Void-filled SRTM data aggregated to 240m resolution (Farr et al., 2007) and quality-filtered, maximum growing season, MODIS EVI data at 250m resolution (Didan, 2015) were downloaded in Fall 2019.  The code chunk below downloads these data into the current R session from figshare. R may be used to access satellite data, but we provide previously-prepared data for the purpose of this analysis.
 
 ```{r, eval = TRUE}
 # Download data from figshare. 
 fs_data <- list("https://ndownloader.figshare.com/files/24366086",
                  "https://ndownloader.figshare.com/files/28259166")
+
+# Set timeout option to 1000s to make sure downloads succeed.
+options(timeout = 1000)
 
 # Function to download rasters, including setting a tempfile.
 get_raster <- function(rasts) {

@@ -104,6 +104,9 @@ rasterVis::levelplot(output_raster2, margin = F, par.settings = eviTheme,
 fs_data <- list("https://ndownloader.figshare.com/files/24366086",
                  "https://ndownloader.figshare.com/files/28259166")
 
+# Set timeout option to 1000s to make sure downloads succeed.
+options(timeout = 1000)
+
 # Function to download rasters, including setting a tempfile.
 get_raster <- function(rasts) {
   tf <- tempfile()

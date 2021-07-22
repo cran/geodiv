@@ -1,7 +1,7 @@
-dbf55136c51ffa2c9f04e2216afd2db3 *DESCRIPTION
+c550a461427ffa09069608ffa466a69f *DESCRIPTION
 cfe141dc4e345ff2bbafc7c4f54da082 *LICENSE
 3481e0d0befaf131f15506b3411183b4 *NAMESPACE
-1e00f2a7bcadab0dfc61ab822aba71b6 *NEWS.md
+5cc875c6cd0b2432e0d0e56a7ff746eb *NEWS.md
 3ec42d126bce94d7ebffc154a3427006 *R/RcppExports.R
 b6a80c674a1a56bd469efbfbca0ac70b *R/aacf.R
 5b425c1bd7c5d6fb56cce2d5d40b22a8 *R/basics.R
@@ -20,14 +20,14 @@ a7b52fc82905a4cd08ad12f1e5505054 *R/simpsons.R
 b99d68691b13fc7d9671aa9023931623 *R/surfacearea.R
 53c532e9a68923898ee5f78e740ce26c *R/utilities.R
 19f74d9e2f2f3a1cb9b2465aefcd7174 *R/zshift.R
-03171e821cb079bcdbc4b3ed8be166fb *README.md
+0fc9dac7ff89932fd3544c47818186cf *README.md
 c10a771d6d8a727b5f6b282d0b711c7a *build/vignette.rds
 1ccb104c994fada5b3a2fb62a439da72 *data/normforest.rda
 776e5a7d21d93225e4e63a578159c884 *data/orelevation.rda
 20b92a0522ce481826fdc6efd1adc1e9 *data/orforest.rda
-68c783fdd7379f369e08b6f52e8eaf17 *inst/doc/geodiv_vignette.R
-76836d92e487a7b0811df64f1463bf71 *inst/doc/geodiv_vignette.Rmd
-1e8e3fd38b59403d2f6e84ac88ac865e *inst/doc/geodiv_vignette.html
+6ea8f5f768c529782c8366500095d1e1 *inst/doc/geodiv_vignette.R
+3290b9a4a6a518db4942be2442a29603 *inst/doc/geodiv_vignette.Rmd
+c8c916fc257ae28bea58b150e181e77b *inst/doc/geodiv_vignette.html
 fd174542f184e7680a5108ba616a12e0 *man/aacf.Rd
 6e0d645964ff4c3c9a401f3a105538ba *man/area_above.Rd
 183c74d60a9abf404ed4d2bb45be928d *man/bearing_area.Rd
@@ -91,6 +91,6 @@ c56e6d71f2bde124e23b9c6a04c7a077 *src/RcppExports.cpp
 dac6afc5ffab4bce50a3cfb8b846c37c *src/sfd.cpp
 c9a7f414c43469331f64be22c51c557f *tests/testthat.R
 a21e78e36c873db2e647046855cb6335 *tests/testthat/test_inputs.R
-76836d92e487a7b0811df64f1463bf71 *vignettes/geodiv_vignette.Rmd
+3290b9a4a6a518db4942be2442a29603 *vignettes/geodiv_vignette.Rmd
 e59a264b7b2b9c1c8e79c385cfa46713 *vignettes/geodiv_vignette.tex
 2a228db84eb2efdd82e1f930025a4697 *vignettes/orig_ndvi_figure.png
