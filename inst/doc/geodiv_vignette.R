@@ -110,7 +110,8 @@ options(timeout = 1000)
 # Function to download rasters, including setting a tempfile.
 get_raster <- function(rasts) {
   tf <- tempfile()
-  download.file(rasts, destfile = tf, mode = 'wb')
+  tryCatch(download.file(rasts, destfile = tf, mode = 'wb'), 
+           error = function(e) 'File download unsuccessful.')
   outrast <- raster(tf)
   return(outrast)
 }
@@ -179,7 +180,8 @@ system.time(outrast <- texture_image(evi_masked, window_type = 'square',
 # The list of figshare files was completed above, so grab the appropriate files
 # for the csv of all texture image outputs for Oregon.
 tf <- tempfile()
-download.file(fs_data[[2]], destfile = tf, mode = 'wb')
+tryCatch(download.file(fs_data[[2]], destfile = tf, mode = 'wb'), 
+         error = function(e) 'File download unsuccessful.')
 data_evi <- read.csv(tf, stringsAsFactors = FALSE)
 unlink(tf)
 
