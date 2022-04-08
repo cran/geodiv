@@ -1,7 +1,7 @@
 Package: geodiv
 Type: Package
 Title: Methods for Calculating Gradient Surface Metrics
-Version: 1.0.4
+Version: 1.0.5
 Author: Annie C. Smith, Phoebe Zarnetske, Kyla Dahlin, Adam Wilson, Andrew Latimer
 Maintainer: Annie C. Smith <annie.smith@dnr.wa.gov>
 Description: Methods for calculating gradient surface metrics for
@@ -24,6 +24,6 @@ Suggests: testthat, ggplot2, rmarkdown, rasterVis, mapdata, maptools,
 LinkingTo: Rcpp, RcppArmadillo
 VignetteBuilder: knitr
 NeedsCompilation: yes
-Packaged: 2021-09-01 21:46:43 UTC; lsth490
+Packaged: 2022-04-07 21:14:52 UTC; lsth490
 Repository: CRAN
-Date/Publication: 2021-09-03 12:20:13 UTC
+Date/Publication: 2022-04-08 06:52:29 UTC
